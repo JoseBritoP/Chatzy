@@ -32,5 +32,11 @@ export const SIGNUP = async (req: Request, res: Response) => {
 };
 
 export const LOGOUT = (req: Request, res: Response) => {
-  return res.json({ DIY: "Logout" });
+  try {
+    res.cookie("jwt","",{ maxAge:0 });
+    res.status(200).json({message:'Looged out successfully'})
+  } catch (error:any) {
+    console.log('Error in logout controller',error.message);
+    return res.status(400).json({message:error.message})
+  }
 };
