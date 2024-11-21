@@ -3,10 +3,6 @@ import authRouter from "./auth.route";
 
 const mainRouter = Router();
 
-mainRouter.use("/", (req, res) => {
-  res.send("Hello world");
-});
-
 mainRouter.use("/api/auth", authRouter);
 
 // Routes error
