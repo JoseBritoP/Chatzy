@@ -1,6 +1,7 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
-export interface User extends Document {
+export interface UserI extends Document {
+  _id: Types.ObjectId;
   email: string;
   fullName: string;
   password: string;
@@ -8,7 +9,7 @@ export interface User extends Document {
   lastConnection?: Date;
 }
 
-const UserSchema: Schema = new Schema(
+const UserSchema: Schema<UserI> = new Schema(
   {
     fullName: {
       type: String,
@@ -23,12 +24,12 @@ const UserSchema: Schema = new Schema(
     password: {
       type: String,
       required: true,
-      minLenght:6
+      minlength: 6,
     },
     profilePic: {
       type: String,
       required: false,
-      default:''
+      default: '',
     },
     lastConnection: {
       type: Date,
@@ -40,6 +41,7 @@ const UserSchema: Schema = new Schema(
   }
 );
 
-const User = mongoose.model<User>('User',UserSchema);
+// Crear y exportar el modelo tipado
+const User = mongoose.model<UserI>('User', UserSchema);
 
 export default User;
