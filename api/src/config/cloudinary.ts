@@ -9,3 +9,5 @@ cloudinary.config({
   api_secret:CLOUDINARY_SECRET_KEY,
   // secure: NODE_ENV === 'development'
 })
+
+export default cloudinary
