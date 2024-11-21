@@ -2,7 +2,7 @@ import User from "../../models/user.model";
 import { AuthSignUp } from "../../schemas/user.schema";
 import { hashPassword } from "../../utils/auth";
 
-const existEmail = async (email: string) => {
+export const existEmail = async (email: string) => {
   const user = await User.findOne({ email });
   if (user) throw new Error(`The email is already used`);
 };
