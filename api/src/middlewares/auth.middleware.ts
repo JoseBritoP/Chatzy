@@ -1,5 +1,5 @@
 import type { Request,Response,NextFunction } from "express";
-import { authLoginSchema, authSchema } from "../schemas/user.schema";
+import { authLoginSchema, authSchema, updateProfileSchema } from "../schemas/user.schema";
 import jwt from "jsonwebtoken";
 import User from "../models/user.model";
 import { Types } from "mongoose";
@@ -64,3 +64,14 @@ export const protectRoute = async(req:Request,res:Response,next:NextFunction) =>
     return res.status(401).json({message:error.message})
   }
 }
+
+export const UpdateProfileInfoMiddleware = (req:Request,res:Response,next:NextFunction) => {
+  try {
+    const body = req.body;
+    const result = updateProfileSchema.safeParse(body);
+    if(!result.success) throw new Error(JSON.stringify(result.error))
+    next();
+  } catch (error:any) {
+    return res.status(400).json({error:JSON.parse(error.message)})
+  }
+};
