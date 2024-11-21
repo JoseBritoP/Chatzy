@@ -14,5 +14,10 @@ export const authSchema = z.object({
   lastConnection
 });
 
+export const authLoginSchema = z.object({
+  email,
+  password
+})
+
 export type AuthSignUp = z.infer<typeof authSchema>;
 export type AuthSignIn = Pick<AuthSignUp,'email' | 'password'>;
