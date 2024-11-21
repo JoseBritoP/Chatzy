@@ -20,7 +20,7 @@ export const signUp = async (data: AuthSignUp) => {
       _id: newAccount._id,
       email: newAccount.email,
       fullName: newAccount.fullName,
-      profilePic: newAccount.profilePîc,
+      profilePic: newAccount.profilePic,
     },
   };
 };
