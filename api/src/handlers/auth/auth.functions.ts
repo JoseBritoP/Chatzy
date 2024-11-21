@@ -1,7 +1,6 @@
 import type { Request, Response } from "express";
-import { signUp } from "../../controllers/auth/01 - signUp";
+import { signUp, signIn } from "../../controllers/auth/";
 import { generateJWT } from "../../utils/jwt";
-import { signIn } from "../../controllers/auth/02 - signIn";
 
 export const GETAUTH = (req: Request, res: Response) => {
   return res.json({ DIY: "GET Auth" });
@@ -33,10 +32,10 @@ export const SIGNUP = async (req: Request, res: Response) => {
 
 export const LOGOUT = (req: Request, res: Response) => {
   try {
-    res.cookie("jwt","",{ maxAge:0 });
-    res.status(200).json({message:'Looged out successfully'})
-  } catch (error:any) {
-    console.log('Error in logout controller',error.message);
-    return res.status(400).json({message:error.message})
+    res.cookie("jwt", "", { maxAge: 0 });
+    res.status(200).json({ message: "Looged out successfully" });
+  } catch (error: any) {
+    console.log("Error in logout controller", error.message);
+    return res.status(400).json({ message: error.message });
   }
 };
