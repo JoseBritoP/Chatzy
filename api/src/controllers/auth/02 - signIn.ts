@@ -5,7 +5,7 @@ import { comparePassword } from "../../utils/auth";
 export const signIn = async (data: AuthSignIn) => {
   const user = await User.findOne({ email: data.email });
 
-  if (!user) throw new Error("Credentials invalid");
+  if (!user) throw new Error("Invalid credentials");
 
   const isPasswordCorrect = await comparePassword(data.password, user.password);
   if (!isPasswordCorrect) throw new Error(`The password is incorrect`);
