@@ -1,5 +1,6 @@
 import type { Request, Response } from "express";
 import { updateProfile } from "../../controllers/profile/01 - updateProfile";
+import AppError from "../../utils/appError";
 
 export const UPDATEPROFILE = async (req: Request, res: Response) => {
   const data = req.body;
@@ -10,6 +11,7 @@ export const UPDATEPROFILE = async (req: Request, res: Response) => {
     return res.status(200).json(user);
   } catch (error: any) {
     console.log("Error in update profile handler", error.message);
-    return res.status(400).json({ error: error.message });
+    if(error instanceof AppError) return res.status(error.statusCode).json({error:error.message})
+    return res.status(400).json({ error: 'Internal server error' });
   }
 };
