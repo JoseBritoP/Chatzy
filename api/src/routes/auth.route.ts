@@ -2,7 +2,7 @@ import { Router } from "express";
 import { AuthHandler } from "../handlers/auth/Auth";
 
 // Middlewares
-import { createAccountValidationMiddleware, loginAccountValidationMiddleware } from "../middlewares/auth";
+import { createAccountValidationMiddleware, loginAccountValidationMiddleware } from "../middlewares/auth.middleware";
 
 const authRouter = Router();
 
