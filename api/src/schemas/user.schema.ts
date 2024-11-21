@@ -19,5 +19,12 @@ export const authLoginSchema = z.object({
   password
 })
 
+export const updateProfileSchema = z.object({
+  email:z.string().email({message:'Invalid format email'}).optional(),
+  fullName:z.string().min(4,{message:'The name is so short'}).optional(),
+  profilePic
+})
+
 export type AuthSignUp = z.infer<typeof authSchema>;
 export type AuthSignIn = Pick<AuthSignUp,'email' | 'password'>;
+export type UPDProfile = z.infer<typeof updateProfileSchema>;
