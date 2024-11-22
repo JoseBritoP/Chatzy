@@ -1,5 +1,6 @@
-import { UPDATEPROFILE } from "./profile.functions";
+import { UPDATEPROFILE, CHECKAUTH } from "./profile.functions";
 
 export class ProfileHandler {
-  static UPDATEPROFILE = UPDATEPROFILE
-}
+  static UPDATEPROFILE = UPDATEPROFILE;
+  static CHECKAUTH = CHECKAUTH;
+};

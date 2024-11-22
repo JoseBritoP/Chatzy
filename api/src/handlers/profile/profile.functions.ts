@@ -15,3 +15,13 @@ export const UPDATEPROFILE = async (req: Request, res: Response) => {
     return res.status(400).json({ error: 'Internal server error' });
   }
 };
+
+export const CHECKAUTH = async (req:Request,res:Response) => {
+  try {
+    const user = req.user;
+    if(!user) throw new Error('User not authenticate')
+    return res.status(200).json(user)
+  } catch (error:any) {
+    return res.status(401).json({error:error.message})
+  }
+}
