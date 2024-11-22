@@ -33,7 +33,6 @@ const messageSchema: Schema<MessageI> = new Schema(
   }
 );
 
-// Crear el modelo de mongoose
 const Message = mongoose.model<MessageI>("Message", messageSchema);
 
 export default Message;
