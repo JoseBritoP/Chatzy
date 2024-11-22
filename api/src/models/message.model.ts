@@ -1,7 +1,6 @@
 import mongoose, { Document, Schema, Types } from "mongoose";
 
-// Interfaz para el modelo Message
-interface MessageI extends Document {
+export interface MessageI extends Document {
   senderId: Types.ObjectId;
   reciverId: Types.ObjectId;
   text: string;
