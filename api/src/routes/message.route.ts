@@ -10,6 +10,7 @@ const messageRouter = Router();
 messageRouter.use(protectRoute);
 
 messageRouter.get('/users',MessageHandler.GETUSERS);
+messageRouter.get('/:id',MessageHandler.GETMESSAGES);
 messageRouter.post('/create',MessageHandler.CREATEMESSAGE);
 
 export default messageRouter;
