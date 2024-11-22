@@ -1,11 +1,13 @@
 import { Request, Response, NextFunction, Router } from "express";
 import authRouter from "./auth.route";
 import profileRouter from "./profile.route";
+import messageRouter from "./message.route";
 
 const mainRouter = Router();
 
 mainRouter.use("/api/auth", authRouter);
 mainRouter.use("/api/profile", profileRouter);
+mainRouter.use("/api/message", messageRouter);
 // Routes error
 mainRouter.use((req, _res, next) => {
   const error: any = new Error(
