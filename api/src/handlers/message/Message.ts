@@ -1,7 +1,7 @@
-import { CREATEMESSAGE,GETUSERS, GETMESSAGES } from "./message.functions";
+import { SENDMESSAGE,GETUSERS, GETMESSAGES } from "./message.functions";
 
 export class MessageHandler {
-  static CREATEMESSAGE = CREATEMESSAGE;
+  static SENDMESSAGE = SENDMESSAGE;
   static GETUSERS = GETUSERS;
   static GETMESSAGES = GETMESSAGES
 }
